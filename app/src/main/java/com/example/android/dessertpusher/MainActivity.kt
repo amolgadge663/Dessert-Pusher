@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     private var revenue = 0
     private var dessertsSold = 0
+    private lateinit var dessertTimer: DessertTimer
 
     // Contains all the views
     private lateinit var binding: ActivityMainBinding
@@ -76,6 +77,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
         //Log.i("MainActivty", "onCreate is Called")
         Timber.i("onCreate is called.")
+
+        dessertTimer = DessertTimer()
 
         // Set the TextViews to the right values
         binding.revenue = revenue
@@ -168,5 +171,11 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
          *Assert: Show issues that the developer expects should never happen.
          *
          */
+        dessertTimer.startTimer()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        dessertTimer.stopTimer()
     }
 }
