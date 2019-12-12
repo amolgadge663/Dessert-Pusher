@@ -27,6 +27,7 @@ import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
 import com.example.android.dessertpusher.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
 
@@ -73,7 +74,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             onDessertClicked()
         }
 
-        Log.i("MainActivty", "onCreate is Called")
+        //Log.i("MainActivty", "onCreate is Called")
+        Timber.i("onCreate is called.")
 
         // Set the TextViews to the right values
         binding.revenue = revenue
@@ -152,7 +154,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onStart() {
         super.onStart()
-        Log.i("MainActivity", "onStart is Called.")
+        //Log.i("MainActivity", "onStart is Called.")
+        Timber.i("onStart is Called.")
 
         /**More about Logs
            Logs have different levels which are used in different situations. The levels and their usages are listed below:
