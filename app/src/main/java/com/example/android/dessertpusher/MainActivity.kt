@@ -18,6 +18,7 @@ package com.example.android.dessertpusher
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -71,6 +72,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         binding.dessertButton.setOnClickListener {
             onDessertClicked()
         }
+
+        Log.i("MainActivty", "onCreate is Called")
 
         // Set the TextViews to the right values
         binding.revenue = revenue
@@ -145,5 +148,22 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             R.id.shareMenuButton -> onShare()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("MainActivity", "onStart is Called.")
+
+        /**More about Logs
+        Logs have different levels which are used in different situations. The levels and their usages are listed below:
+
+        Verbose: Show all log messages (the default).
+        Debug: Show debug log messages that are useful during development only, as well as the message levels lower in this list.
+        Info: Show expected log messages for regular usage, as well as the message levels lower in this list.
+        Warn: Show possible issues that are not yet errors, as well as the message levels lower in this list.
+        Error: Show issues that have caused errors, as well as the message level lower in this list.
+        Assert: Show issues that the developer expects should never happen.
+         *
+         */
     }
 }
